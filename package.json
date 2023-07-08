@@ -1,0 +1,23 @@
+{
+  "name": "calculator-tdd-jest",
+  "version": "1.0.0",
+  "description": "calculator",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --noStackTrace --passWithNoTests",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "type": "module",
+  "keywords": [
+    "calculator",
+    "tdd",
+    "testing"
+  ],
+  "author": "diego",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.6.1",
+    "vite": "^4.4.2"
+  }
+}
