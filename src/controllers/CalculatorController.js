@@ -3,18 +3,23 @@ import { CalculatorView } from "../views/CalculatorView";
 
 class CalculatorController {
     #calculator;
+    #calculatorView;
 
     constructor() {
         this.createModels();
         this.createViews();
+        console.info("Controller initialized!!!");
     }
 
     createModels() {
         this.#calculator = new Calculator();
+        console.info("Model initialized!!!");
     }
 
     createViews() {
-        this.CalculatorView = new CalculatorView(this.#calculator);
+        this.#calculatorView = new CalculatorView(this.#calculator);
+        this.#calculatorView.render();
+        console.info("Views initialized!!!");
     }
 }
 

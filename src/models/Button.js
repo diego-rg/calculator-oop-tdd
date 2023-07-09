@@ -1,6 +1,16 @@
 class Button {
+    // String that represents the button
+    // @type {string}
+    #text;
+
     constructor(text) {
-        this.text = text;
+        this.#text = text;
+        console.info("Button created!!!");
+    }
+
+    // Getters and Setters
+    get text() {
+        return this.#text;
     }
 }
 
