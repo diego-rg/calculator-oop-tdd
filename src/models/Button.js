@@ -3,21 +3,30 @@ class Button {
     // @type {string}
     #text;
 
-    constructor(text) {
-        this.#text = text;
-        console.info("Button created!!!");
-    }
-
     // Getters and Setters
     get text() {
         return this.#text;
     }
+
+    constructor(text) {
+        this.#text = text;
+        console.info("Button created!!!");
+    }
 }
 
 class Numeric extends Button {
+    // Number if the button is numeric
+    // @type {number}
+    #value;
+
+    // Getters and Setters
+    get value() {
+        return this.#value;
+    }
+
     constructor(text) {
         super(text);
-        this.value = Number(text);
+        this.#value = Number(text);
     }
 }
 

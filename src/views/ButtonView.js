@@ -18,9 +18,7 @@ class ButtonView {
         const newButton = document.createElement("button");
         newButton.innerText = this.#buttonModel.text;
         this.#element = newButton;
-
-        // Return the dom element
-        this.#element.view = this;
+        this.#element.view = this; // Return the dom element
         console.info("Button view created!!!");
         return this;
     }

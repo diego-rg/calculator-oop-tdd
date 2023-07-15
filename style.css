@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    font-size: 1.5rem;
+}
+
+body {
+    background-color: lightslategray;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.screenContainer {
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+input {
+    width: 100%;
+    border-radius: 0.25rem;
+}
+
+.buttonsContainer {
+    display: grid;
+    gap: 0.25rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+button {
+    border-radius: 0.25rem;
+}

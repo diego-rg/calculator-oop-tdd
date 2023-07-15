@@ -23,7 +23,7 @@ class CalculatorView {
     render() {
         this.createViews();
 
-        const divButtons = document.getElementById("buttons");
+        const divButtons = document.getElementById("buttonsContainer");
         this.#buttonsViews.forEach(view => {
             divButtons.append(view.render().element);
         });
