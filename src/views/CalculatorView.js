@@ -1,7 +1,9 @@
 import { ButtonView } from "./ButtonView";
+import { ScreenView } from "./ScreenView";
 
 class CalculatorView {
     #buttonsViews = [];
+    #screenView;
     #calculatorModel;
 
     constructor(calculatorModel) {
@@ -18,10 +20,16 @@ class CalculatorView {
             this.#buttonsViews.push(new ButtonView(button));
         });
         console.info("Button views created!!!");
+
+        this.#screenView = new ScreenView(this.#calculatorModel.screen);
     }
 
     render() {
         this.createViews();
+
+        const divScreen = document.getElementById("screenContainer");
+        divScreen.append(this.#screenView.render().element);
+
 
         const divButtons = document.getElementById("buttonsContainer");
         this.#buttonsViews.forEach(view => {

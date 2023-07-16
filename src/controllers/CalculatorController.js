@@ -1,28 +1,13 @@
-import { Calculator } from "../models/Calculator";
 import { CalculatorView } from "../views/CalculatorView";
 
 class CalculatorController {
-    #calculator;
     #calculatorView;
+    #calculatorModel;
 
-    constructor() {
-        this.createModels();
-        this.createViews();
-        console.info("Controller initialized!!!");
-    }
-
-    createModels() {
-        this.#calculator = new Calculator();
-        console.info("Model initialized!!!");
-    }
-
-    createViews() {
-        this.#calculatorView = new CalculatorView(this.#calculator);
+    constructor(calculatorModel) {
+        this.#calculatorModel = calculatorModel;
+        this.#calculatorView = new CalculatorView(this.#calculatorModel);
         this.#calculatorView.render();
-        console.info("Views initialized!!!");
     }
 }
-
-const init = () => new CalculatorController();
-
-export { init };
+export { CalculatorController };
