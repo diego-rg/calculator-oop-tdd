@@ -3,7 +3,7 @@ import { Screen } from "./Screen";
 
 class Calculator {
     // Array that contains all text values for the buttons
-    #nonNumericText = ["C", "DEL", "+", "-", "x", "/", "%", "=", "."];
+    #nonNumericText = ["C", "+", "-", "x", "/", "%", "=", "."];
     #numericText = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
     // Array that contains all button objects
@@ -32,10 +32,6 @@ class Calculator {
         this.observers.push(observer);
     }
 
-    removeObserver(observer) {
-        this.observers = this.observers.filter(obs => obs !== observer);
-    }
-
     notify(data) {
         this.observers.forEach(observer => observer.update(data));
     }
@@ -49,6 +45,11 @@ class Calculator {
         console.info("Calculator created!!!");
 
         this.#screen = new Screen(this, "hello world!!!");
+    }
+
+    writeData(data) {
+        this.#screen.text += data;
+        this.notify(data);
     }
 }
 

@@ -11,11 +11,12 @@ class CalculatorView {
     }
 
     // Getters and Setters
-    get buttonViews() {
+    get buttonsViews() {
         return this.#buttonsViews;
     }
 
     createViews() {
+        this.#buttonsViews = [];
         this.#calculatorModel.buttons.forEach(button => {
             this.#buttonsViews.push(new ButtonView(button));
         });
@@ -28,10 +29,12 @@ class CalculatorView {
         this.createViews();
 
         const divScreen = document.getElementById("screenContainer");
+        divScreen.replaceChildren();
         divScreen.append(this.#screenView.render().element);
 
 
         const divButtons = document.getElementById("buttonsContainer");
+        divButtons.replaceChildren();
         this.#buttonsViews.forEach(view => {
             divButtons.append(view.render().element);
         });

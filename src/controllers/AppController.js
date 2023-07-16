@@ -16,8 +16,10 @@ class AppController {
     }
 
     createController() {
-        new CalculatorController(this.#calculator);
+        const calculatorController = new CalculatorController(this.#calculator);
+        this.#calculator.addObserver(calculatorController);
         console.info("Calculator controller initialized!!!");
+        calculatorController.registerEvents();
     }
 }
 

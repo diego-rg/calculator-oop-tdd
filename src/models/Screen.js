@@ -9,6 +9,10 @@ class Screen {
         return this.#text;
     }
 
+    set text(text) {
+        this.#text = text;
+    }
+
     constructor(calculator, text) {
         this.#calculator = calculator;
         this.#text = text;
