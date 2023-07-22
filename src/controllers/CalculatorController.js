@@ -21,7 +21,7 @@ class CalculatorController {
     };
 
     redraw() {
-        this.#calculatorView.render();
+        this.#calculatorView.redraw();
         this.registerEvents();
     }
 

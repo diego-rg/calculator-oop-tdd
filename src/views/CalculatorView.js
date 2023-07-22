@@ -41,6 +41,12 @@ class CalculatorView {
         console.info("Calculator view created!!!");
         return this;
     }
+
+    redraw() {
+        const divScreen = document.getElementById("screenContainer");
+        divScreen.replaceChildren();
+        divScreen.append(this.#screenView.render().element);
+    }
 }
 
 export { CalculatorView };

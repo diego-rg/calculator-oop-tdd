@@ -50,6 +50,7 @@ input:hover {
 button {
     border: 1px solid black;
     border-radius: 0.25rem;
+    padding: 0.5rem;
 }
 
 button:hover {

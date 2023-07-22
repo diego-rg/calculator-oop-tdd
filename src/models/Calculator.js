@@ -4,7 +4,7 @@ import { Screen } from "./Screen";
 class Calculator {
     // Array that contains all text values for the buttons
     #nonNumericText = ["C", "+", "-", "x", "/", "%", "=", "."];
-    #numericText = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+    #numericText = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
     // Array that contains all button objects
     // @type {array<Numeric || Button>}
@@ -12,6 +12,12 @@ class Calculator {
 
     // Object that contains the data written
     #screen;
+
+    #firstOperand = null;
+    #secondOperand = null;
+    #operator = null;
+    #result = null;
+
 
     // Getters and Setters
     get buttons() {
@@ -49,6 +55,27 @@ class Calculator {
 
     writeData(data) {
         this.#screen.text += data;
+        this.notify(data);
+    }
+
+    calculate() {
+        if (typeof (this.#firstOperand) === Number && typeof (this.#secondOperand) === Number && typeof (this.#operator) === String) {
+            switch (this.#operator) {
+                case "+":
+                    this.#result = this.#firstOperand + this.#secondOperand;
+                    this.#screen.text = String(this.#result);
+                    break;
+
+                case "-":
+                    this.#result = this.#firstOperand - this.#secondOperand;
+                    this.#screen.text = String(this.#result);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
         this.notify(data);
     }
 }
