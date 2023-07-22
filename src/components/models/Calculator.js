@@ -46,7 +46,7 @@ class Calculator {
     //Starts the calculator
     init() {
         const newCalculator = [];
-        this.#text.forEach(text => newCalculator.push(new Button(text)));
+        this.#text.forEach(text => newCalculator.push(new Button(this, text)));
         this.#buttons = newCalculator;
         console.info("Calculator created!!!");
 

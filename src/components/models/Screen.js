@@ -1,7 +1,14 @@
 class Screen {
-    // String that represents what is shown on the screen
-    // @type {string}
+    /**
+    * String that holds the text in the screen
+    * @type {String}
+    */
     #text;
+
+    /**
+    * Calculator object
+    * @type {Calculator}
+    */
     #calculator;
 
     // Getters and Setters

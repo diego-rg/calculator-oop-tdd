@@ -1,8 +1,10 @@
-import { Button } from "../components/models/Button";
+import { Button } from "../../components/models/Button";
+import { Calculator } from "../../components/models/Calculator";
 
 describe('Button - Create buttons', () => {
     test('Button01: Success - It must return a new button object with a certain string which represents the button', () => {
-        const button = new Button("C");
+        const calculator = new Calculator();
+        const button = new Button(calculator, "C");
         expect(button.text).toBe("C");
     });
 

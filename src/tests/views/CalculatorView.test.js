@@ -1,5 +1,5 @@
-import { Calculator } from "../components/models/Calculator";
-import { CalculatorView } from "../components/views/CalculatorView";
+import { Calculator } from "../../components/models/Calculator";
+import { CalculatorView } from "../../components/views/CalculatorView";
 
 describe('CalculatorView01 - Create a new calculator view', () => {
     test('01 CalculatorView - It must create the button views Array to render', () => {

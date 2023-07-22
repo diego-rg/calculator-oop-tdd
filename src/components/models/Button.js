@@ -5,14 +5,20 @@ class Button {
      */
     #text;
 
+    /**
+   * Calculator object
+   * @type {Calculator}
+   */
+    #calculator;
+
     // Getters and Setters
     get text() {
         return this.#text;
     }
 
-    constructor(text) {
+    constructor(calculator, text) {
+        this.#calculator = calculator;
         this.#text = text;
-        console.info("Button created");
     }
 }
 
