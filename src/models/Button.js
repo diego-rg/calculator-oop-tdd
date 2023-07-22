@@ -1,6 +1,8 @@
 class Button {
-    // String that represents the button
-    // @type {string}
+    /**
+     * String that represents the button
+     * @type {String}
+     */
     #text;
 
     // Getters and Setters
@@ -10,7 +12,7 @@ class Button {
 
     constructor(text) {
         this.#text = text;
-        console.info("Button created!!!");
+        console.info("Button created");
     }
 }
 
