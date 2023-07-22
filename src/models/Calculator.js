@@ -1,20 +1,21 @@
-import { Button, Numeric } from "./Button";
+import { Button } from "./Button";
 import { Screen } from "./Screen";
 
 class Calculator {
     // Array that contains all text values for the buttons
-    #nonNumericText = ["C", "+", "-", "x", "/", "%", "=", "."];
-    #numericText = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    // @type {array<String>}
+    #text = ["C", "+", "-", "x", "/", "%", "=", ".", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
     // Array that contains all button objects
-    // @type {array<Numeric || Button>}
+    // @type {array<Button>}
     #buttons;
 
     // Object that contains the data written
+    // @type {Object}
     #screen;
 
-    #firstOperand = null;
-    #secondOperand = null;
+    #currentOperand = null;
+    #previousOperand = null;
     #operator = null;
     #result = null;
 
@@ -45,38 +46,86 @@ class Calculator {
     //Starts the calculator
     init() {
         const newCalculator = [];
-        this.#nonNumericText.forEach(text => newCalculator.push(new Button(text)));
-        this.#numericText.forEach(text => newCalculator.push(new Numeric(text)));
+        this.#text.forEach(text => newCalculator.push(new Button(text)));
         this.#buttons = newCalculator;
         console.info("Calculator created!!!");
 
-        this.#screen = new Screen(this, "hello world!!!");
+        this.#screen = new Screen(this, "");
     }
 
     writeData(data) {
+        if (this.#screen.text.length) {
+            if (data === "." && this.#screen.text.includes(".")) {
+                return;
+            }
+        }
         this.#screen.text += data;
-        this.notify(data);
+        this.#currentOperand = this.#screen.text;
+
+        console.log(this.#currentOperand);
+        this.notify();
+    }
+
+    writeOperation(operator) {
+        if (this.#currentOperand === "" || this.#currentOperand === null) {
+            return;
+        }
+        if (this.#previousOperand !== "" && this.#previousOperand !== null) {
+            this.calculate();
+        }
+        this.#operator = operator;
+        this.#previousOperand = this.#currentOperand;
+        this.#currentOperand = "";
+        this.#screen.text = this.#currentOperand;
+        // We dont update the view because we want to keep the previous number until we write the new one
+
+        console.log(this.#operator);
+        console.log(this.#currentOperand);
+        console.log(this.#previousOperand);
+    }
+
+    clearScreen() {
+        this.#screen.text = "";
+        this.resetCalculator();
+        this.notify();
+    }
+
+    resetCalculator() {
+        this.#currentOperand = null;
+        this.#previousOperand = null;
+        this.#operator = null;
+        this.#result = null;
     }
 
     calculate() {
-        if (typeof (this.#firstOperand) === Number && typeof (this.#secondOperand) === Number && typeof (this.#operator) === String) {
+        if (this.#currentOperand !== null &&
+            this.#previousOperand !== null &&
+            this.#operator !== null) {
             switch (this.#operator) {
                 case "+":
-                    this.#result = this.#firstOperand + this.#secondOperand;
-                    this.#screen.text = String(this.#result);
+                    this.#result = Number(this.#previousOperand) + Number(this.#currentOperand);
                     break;
-
                 case "-":
-                    this.#result = this.#firstOperand - this.#secondOperand;
-                    this.#screen.text = String(this.#result);
+                    this.#result = Number(this.#previousOperand) - Number(this.#currentOperand);
+                    break;
+                case "x":
+                    this.#result = Number(this.#previousOperand) * Number(this.#currentOperand);
+                    break;
+                case "/":
+                    this.#result = Number(this.#previousOperand) / Number(this.#currentOperand);
+                    break;
+                case "%":
+                    this.#result = Number(this.#previousOperand) % Number(this.#currentOperand);
                     break;
 
                 default:
                     break;
             }
+            this.#screen.text = this.#result;
+            this.resetCalculator();
+            this.#currentOperand = this.#screen.text;
+            this.notify();
         }
-
-        this.notify(data);
     }
 }
 

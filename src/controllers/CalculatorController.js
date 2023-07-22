@@ -17,7 +17,27 @@ class CalculatorController {
     }
 
     onClickButton = (event) => {
-        this.#calculatorModel.writeData(event.target.innerText);
+        switch (event.target.innerText) {
+            case "C":
+                this.#calculatorModel.clearScreen();
+                break;
+
+            case "=":
+                this.#calculatorModel.calculate();
+                break;
+
+            case "+":
+            case "-":
+            case "x":
+            case "/":
+            case "%":
+                this.#calculatorModel.writeOperation(event.target.innerText);
+                break;
+
+            default:
+                this.#calculatorModel.writeData(event.target.innerText);
+                break;
+        }
     };
 
     redraw() {

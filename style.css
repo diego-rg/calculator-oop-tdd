@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    color: #c9d4dc;
+    border: none;
+    border-radius: 0.25rem;
 }
 
 body {
@@ -9,12 +12,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #17191E;
 }
 
 .calculator {
-    border: 1px solid black;
-    background-color: lightslategray;
-    border-radius: 0.5rem;
+    background-color: #23252b;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -26,10 +28,10 @@ body {
 }
 
 input {
+    background-color: #383b49;
     width: 100%;
-    border-radius: 0.25rem;
-    border: 1px solid black;
     padding: 0.5rem;
+    text-align: right;
 }
 
 input:focus {
@@ -48,8 +50,7 @@ input:hover {
 }
 
 button {
-    border: 1px solid black;
-    border-radius: 0.25rem;
+    background-color: #383b49;
     padding: 0.5rem;
 }
 
