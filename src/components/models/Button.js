@@ -1,14 +1,14 @@
 class Button {
     /**
-     * String that represents the button
-     * @type {String}
-     */
+    * String that represents the button
+    * @type {String}
+    */
     #text;
 
     /**
-   * Calculator object
-   * @type {Calculator}
-   */
+    * Calculator object
+    * @type {Object<Calculator>}
+    */
     #calculator;
 
     // Getters and Setters

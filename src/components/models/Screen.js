@@ -7,7 +7,7 @@ class Screen {
 
     /**
     * Calculator object
-    * @type {Calculator}
+    * @type {Object<Calculator>}
     */
     #calculator;
 
