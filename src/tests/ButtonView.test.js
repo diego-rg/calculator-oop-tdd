@@ -1,5 +1,5 @@
-import { Button } from "../models/Button";
-import { ButtonView } from "./ButtonView";
+import { Button } from "../components/models/Button";
+import { ButtonView } from "../components/views/ButtonView";
 
 describe('Button01 - Create a new button view', () => {
     test('01 Button - It must return a new button view object', () => {

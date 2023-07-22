@@ -1,4 +1,4 @@
-import { Button } from "./Button";
+import { Button } from "../components/models/Button";
 
 describe('Button - Create buttons', () => {
     test('Button01: Success - It must return a new button object with a certain string which represents the button', () => {

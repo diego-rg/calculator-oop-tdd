@@ -1,3 +1,3 @@
-import { init } from "./src/controllers/AppController";
+import { init } from "./src/components/controllers/AppController";
 
 init();
